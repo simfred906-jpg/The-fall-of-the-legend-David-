@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Defeat of David Coyle — A Night to Remember</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f0f0f;
+      --card: #1a1a1a;
+      --red: #e63946;
+      --red-dark: #c1121f;
+      --green: #39ff14;
+      --green-dim: #1a7a0a;
+      --text: #f1f1f1;
+      --muted: #a0a0a0;
+      --yellow: #ffd60a;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* Header */
+    header {
+      background: #000;
+      border-bottom: 3px solid var(--red);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8rem;
+      letter-spacing: 2px;
+      color: var(--red);
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: var(--text);
+    }
+
+    nav {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--green);
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(180deg, #1a0000 0%, #0f0f0f 100%);
+      padding: 3.5rem 1.5rem 3.5rem;
+      text-align: center;
+      border-bottom: 1px solid #222;
+    }
+
+    .hero-image-wrap {
+      max-width: 520px;
+      margin: 0 auto 2rem;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 3px solid var(--red);
+      box-shadow: 0 0 40px rgba(230, 57, 70, 0.35), 0 0 80px rgba(57, 255, 20, 0.15);
+      position: relative;
+    }
+
+    .hero-image-wrap img {
+      width: 100%;
+      height: auto;
+      display: block;
+      vertical-align: middle;
+    }
+
+    .hero-image-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.85));
+      color: var(--green);
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 1.8rem 1rem 0.8rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: var(--red);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      padding: 0.35rem 0.9rem;
+      border-radius: 4px;
+      margin-bottom: 1.2rem;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.8rem, 8vw, 5rem);
+      line-height: 1;
+      letter-spacing: 2px;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero h1 .green {
+      color: var(--green);
+      text-shadow: 0 0 20px rgba(57, 255, 20, 0.4);
+    }
+
+    .hero h1 a {
+      color: inherit;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .hero h1 a:hover {
+      opacity: 0.85;
+      text-decoration: underline;
+      text-underline-offset: 6px;
+    }
+
+    a.coyle-link {
+      color: var(--yellow);
+      text-decoration: none;
+      border-bottom: 1px dashed var(--yellow);
+      transition: all 0.2s;
+    }
+
+    a.coyle-link:hover {
+      color: var(--green);
+      border-bottom-color: var(--green);
+    }
+
+    .hero-sub {
+      font-size: 1.2rem;
+      color: var(--muted);
+      max-width: 560px;
+      margin: 0 auto 2rem;
+    }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.2rem;
+      color: var(--yellow);
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Content sections */
+    .section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3.5rem 1.5rem;
+    }
+
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.4rem;
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+    }
+
+    .section-title span {
+      color: var(--red);
+    }
+
+    .section-intro {
+      color: var(--muted);
+      margin-bottom: 2rem;
+      font-size: 1.05rem;
+    }
+
+    /* Story cards */
+    .story-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .story-card {
+      background: var(--card);
+      border: 1px solid #2a2a2a;
+      border-radius: 10px;
+      padding: 1.8rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .story-card::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: var(--red);
+    }
+
+    .story-card.green-border::before {
+      background: var(--green);
+    }
+
+    .story-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.6rem;
+      color: var(--yellow);
+    }
+
+    .story-card p {
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .story-photo {
+      margin: 2rem 0;
+      text-align: center;
+    }
+
+    .story-photo img {
+      max-width: 100%;
+      width: 420px;
+      border-radius: 10px;
+      border: 2px solid #333;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+    }
+
+    .story-photo figcaption {
+      margin-top: 0.7rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    /* Timeline */
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+      margin-top: 1rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 6px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: #333;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 1.8rem;
+      padding-left: 1.5rem;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -2rem;
+      top: 6px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--red);
+      border: 3px solid var(--bg);
+    }
+
+    .timeline-item.green::before {
+      background: var(--green);
+    }
+
+    .timeline-time {
+      font-size: 0.8rem;
+      color: var(--yellow);
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .timeline-text {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* Quote */
+    .quote-box {
+      background: linear-gradient(135deg, #1a1a1a, #221111);
+      border: 1px solid #3a2a2a;
+      border-radius: 10px;
+      padding: 2rem;
+      text-align: center;
+      margin: 2.5rem 0;
+    }
+
+    .quote-box blockquote {
+      font-size: 1.35rem;
+      font-style: italic;
+      color: var(--text);
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+
+    .quote-box cite {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    /* Aftermath */
+    .aftermath-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .aftermath-card {
+      background: var(--card);
+      border-radius: 10px;
+      padding: 1.5rem;
+      border: 1px solid #2a2a2a;
+      text-align: center;
+    }
+
+    .aftermath-icon {
+      font-size: 2rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .aftermath-card h4 {
+      font-size: 1.05rem;
+      margin-bottom: 0.4rem;
+      color: var(--yellow);
+    }
+
+    .aftermath-card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    /* Final verdict */
+    .verdict {
+      background: linear-gradient(135deg, #111, #1a0a0a);
+      border: 2px solid var(--red);
+      border-radius: 12px;
+      padding: 2.5rem;
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .verdict h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.2rem;
+      letter-spacing: 1px;
+      margin-bottom: 0.8rem;
+    }
+
+    .verdict p {
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 auto 1.5rem;
+    }
+
+    .verdict-badge {
+      display: inline-block;
+      background: var(--green);
+      color: #000;
+      font-weight: 700;
+      padding: 0.5rem 1.4rem;
+      border-radius: 50px;
+      font-size: 0.95rem;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid #222;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    footer strong {
+      color: var(--red);
+      font-family: 'Bebas Neue', sans-serif;
+      letter-spacing: 1px;
+      font-size: 1.2rem;
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        display: none;
+      }
+
+      .hero-stats {
+        gap: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="nav-inner">
+      <a href="#" class="logo">COYLE <span>DEFEAT</span></a>
+      <nav>
+        <a href="#story">The Story</a>
+        <a href="#timeline">Timeline</a>
+        <a href="#aftermath">Aftermath</a>
+        <a href="#verdict">Verdict</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-badge">Historic Night • The Ring • Green Apocalypse</div>
+    <h1>THE DEFEAT OF<br><span class="green"><a href="https://www.google.com/search?q=David+Coyle" target="_blank" rel="noopener">DAVID COYLE</a></span></h1>
+    <p class="hero-sub">
+      One man. One ring. One catastrophic, slime-covered knockout that the fight world will never forget.
+    </p>
+
+    <a href="https://www.google.com/search?q=David+Coyle" target="_blank" rel="noopener noreferrer" class="hero-image-wrap" style="display:block;">
+      <img src="david-coyle.jpg" alt="David Coyle defeated and covered in green slime in the boxing ring" />
+      <div class="hero-image-caption">The defining moment — flat on the canvas, fully green</div>
+    </a>
+
+    <p style="margin: 1.5rem 0 0.5rem;">
+      <a href="https://www.google.com/search?q=David+Coyle" target="_blank" rel="noopener noreferrer"
+         style="display:inline-block; background:var(--green); color:#000; font-weight:700; padding:0.7rem 1.6rem; border-radius:50px; text-decoration:none; font-size:1rem;">
+        Search David Coyle on Google →
+      </a>
+    </p>
+
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-num">1</span>
+        <span class="stat-label">Round</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">∞</span>
+        <span class="stat-label">Slime</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">0</span>
+        <span class="stat-label">Dignity Left</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">100%</span>
+        <span class="stat-label">Legend Status</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Story -->
+  <section class="section" id="story">
+    <h2 class="section-title">THE <span>STORY</span></h2>
+    <p class="section-intro">What started as a standard bout quickly turned into one of the messiest moments in modern combat sports history.</p>
+
+    <div class="story-grid">
+      <div class="story-card">
+        <h3>The Man</h3>
+        <p>
+          <a href="https://www.google.com/search?q=David+Coyle" target="_blank" rel="noopener" class="coyle-link">David Coyle</a> entered the ring that night with confidence, red shorts, white gloves, and a name stitched proudly across his waistband. Fans expected a tough, physical fight. Nobody expected what came next.
+        </p>
+      </div>
+
+      <div class="story-card green-border">
+        <h3>The Green Disaster</h3>
+        <p>
+          In a sequence still debated by fans, Coyle found himself on his back, covered head-to-toe in a thick, glowing green substance. Whether it was a failed special-effects gag, an overzealous prank, or pure chaos, the result was the same: total defeat by slime.
+        </p>
+      </div>
+
+      <div class="story-card">
+        <h3>The Image That Defined a Career</h3>
+        <p>
+          The photo of Coyle flat on the canvas, eyes closed, body glistening under the arena lights and coated in neon green, became an instant classic. It captured everything — exhaustion, surprise, and the pure absurdity of the moment.
+        </p>
+      </div>
+    </div>
+
+    <figure class="story-photo">
+      <img src="david-coyle.jpg" alt="David Coyle lying defeated in the ring covered in green slime" />
+      <figcaption>The unforgettable shot: David Coyle after the green defeat</figcaption>
+    </figure>
+  </section>
+
+  <!-- Timeline -->
+  <section class="section" id="timeline">
+    <h2 class="section-title">FIGHT <span>TIMELINE</span></h2>
+    <p class="section-intro">A blow-by-blow account of how it all went green.</p>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-time">PRE-FIGHT</div>
+        <div class="timeline-text">Coyle walks to the ring looking focused. Red shorts. Name belt. Crowd is hyped.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">ROUND 1 — OPENING</div>
+        <div class="timeline-text">Standard feeling-out process. A few jabs exchanged. Nothing unusual… yet.</div>
+      </div>
+      <div class="timeline-item green">
+        <div class="timeline-time">THE INCIDENT</div>
+        <div class="timeline-text">Chaos erupts. Green slime appears. Coyle is suddenly on the mat, completely covered. The referee looks as confused as everyone else.</div>
+      </div>
+      <div class="timeline-item green">
+        <div class="timeline-time">THE COUNT</div>
+        <div class="timeline-text">Coyle remains down. The green keeps spreading. The arena falls into a mix of laughter, gasps, and stunned silence.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">OFFICIAL RESULT</div>
+        <div class="timeline-text">Defeat by technical knockout… via slime. David Coyle’s night is over. The legend begins.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quote -->
+  <div class="section" style="padding-top:0; padding-bottom:0;">
+    <div class="quote-box">
+      <blockquote>
+        “I’ve been hit hard before… but I’ve never been defeated by a color.”
+      </blockquote>
+      <cite>— Alleged post-fight comment attributed to David Coyle</cite>
+    </div>
+  </div>
+
+  <!-- Aftermath -->
+  <section class="section" id="aftermath">
+    <h2 class="section-title">THE <span>AFTERMATH</span></h2>
+    <p class="section-intro">What happened after the green settled.</p>
+
+    <div class="aftermath-grid">
+      <div class="aftermath-card">
+        <div class="aftermath-icon">📸</div>
+        <h4>Viral Instantly</h4>
+        <p>The photo spread across the internet within minutes. Memes were born before Coyle even stood up.</p>
+      </div>
+      <div class="aftermath-card">
+        <div class="aftermath-icon">🧽</div>
+        <h4>Cleanup Crew</h4>
+        <p>Ring crew spent the next hour scrubbing neon green off the canvas, ropes, and everything else.</p>
+      </div>
+      <div class="aftermath-card">
+        <div class="aftermath-icon">🏆</div>
+        <h4>Unexpected Fame</h4>
+        <p>Instead of career damage, Coyle gained cult status. “The Green Defeat” became his signature moment.</p>
+      </div>
+      <div class="aftermath-card">
+        <div class="aftermath-icon">🎤</div>
+        <h4>Press Conference</h4>
+        <p>When asked what happened, Coyle reportedly just stared at the cameras and said, “It was… sticky.”</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final Verdict -->
+  <section class="section" id="verdict">
+    <div class="verdict">
+      <h2>FINAL VERDICT</h2>
+      <p>
+        <a href="https://www.google.com/search?q=David+Coyle" target="_blank" rel="noopener" class="coyle-link">David Coyle</a> may have lost the fight, but he won something far greater — immortality in the hall of unforgettable combat sports moments. Covered in green, flat on his back, and forever legendary.
+      </p>
+      <div class="verdict-badge">DEFEATED… BUT NEVER FORGOTTEN</div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p><strong>THE DEFEAT OF <a href="https://www.google.com/search?q=David+Coyle" target="_blank" rel="noopener" style="color:var(--red); text-decoration:none;">DAVID COYLE</a></strong></p>
+    <p style="margin-top:0.6rem;">A tribute to one of the messiest nights in ring history.<br>© 2026 • All rights reserved to the legend</p>
+  </footer>
+
+  <script>
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
